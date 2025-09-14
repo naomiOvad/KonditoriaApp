@@ -24,12 +24,13 @@ The project is split into two parts:
 cd node.js
 npm install
 npm run dev
-
-### Fronteמd
+```
+### Frontend
 ```bash
 cd react
 npm install
 npm start
+
 
 
 
