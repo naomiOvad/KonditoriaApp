@@ -30,8 +30,3 @@ npm run dev
 cd react
 npm install
 npm start
-
-
-
-
-
