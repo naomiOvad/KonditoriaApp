@@ -1,0 +1,160 @@
+[
+  {
+    "userId": 1,
+    "cart": [
+      {
+        "id": 2,
+        "category": "קונדיטוריה",
+        "name": "עוגיית חמאה",
+        "description": "עוגייה קלאסית נמסה בפה",
+        "image": "images/butter.jpg",
+        "content": "קמח, חמאה, סוכר וניל",
+        "price": "15",
+        "quantity": 2
+      },
+      {
+        "id": 4,
+        "category": "קונדיטוריה",
+        "name": "עוגת שוקולד",
+        "description": "עוגת שוקולד עשירה בציפוי שוקולד",
+        "image": "images/choco_cake.jpg",
+        "content": "קקאו, קמח, ביצים, שוקולד מריר",
+        "price": 38,
+        "quantity": 3
+      },
+      {
+        "id": 1,
+        "category": "קונדיטוריה",
+        "name": "עוגיית שוקולד צ'יפס",
+        "description": "עוגייה פריכה עם שוקולד צ'יפס איכותי",
+        "image": "images/chocochip.jpg",
+        "content": "קמח, סוכר, חמאה, שוקולד צ'יפס",
+        "price": "30",
+        "quantity": 1
+      },
+      {
+        "id": 5,
+        "category": "קונדיטוריה",
+        "name": "עוגת גבינה",
+        "description": "עוגת גבינה אפויה ונימוחה",
+        "image": "images/cheese.jpg",
+        "content": "גבינת שמנת, ביצים, סוכר",
+        "price": 42,
+        "quantity": 2
+      },
+      {
+        "id": 6,
+        "category": "קונדיטוריה",
+        "name": "עוגת גזר",
+        "description": "עוגת גזר עם אגוזים וקינמון",
+        "image": "images/carrot.jpg",
+        "content": "גזר מגורר, אגוזים, קמח, קינמון",
+        "price": 36,
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "userId": 2,
+    "cart": [
+      {
+        "id": 5,
+        "category": "קונדיטוריה",
+        "name": "עוגת גבינה",
+        "description": "עוגת גבינה אפויה ונימוחה",
+        "image": "images/cheese.jpg",
+        "content": "גבינת שמנת, ביצים, סוכר",
+        "price": 42,
+        "quantity": 1
+      },
+      {
+        "id": 15,
+        "category": "קונדיטוריה",
+        "name": "עוגיית בוטנים",
+        "description": "עוגייה פריכה עם חמאת בוטנים",
+        "image": "images/peanut.jpg",
+        "content": "קמח, חמאת בוטנים, ביצה",
+        "price": 13,
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "userId": 3,
+    "cart": [
+      {
+        "id": 7,
+        "category": "קייטרינג",
+        "name": "בורקס גבינה",
+        "description": "בורקס פריך עם גבינה",
+        "image": "images/burekas_cheese.jpg",
+        "content": "בצק עלים, גבינת פטה, ביצה",
+        "price": 8,
+        "quantity": 4
+      },
+      {
+        "id": 11,
+        "category": "מגשי ארוח",
+        "name": "תה צמחים",
+        "description": "חליטת צמחים מרגיעה",
+        "image": "images/herbal_tea.jpg",
+        "content": "נענע, לואיזה, קמומיל",
+        "price": 5,
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "userId": 4,
+    "cart": [
+      {
+        "id": 1,
+        "category": "קונדיטוריה",
+        "name": "עוגיית שוקולד צ'יפס",
+        "description": "עוגייה פריכה עם שוקולד צ'יפס איכותי",
+        "image": "images/chocochip.jpg",
+        "content": "קמח, סוכר, חמאה, שוקולד צ'יפס",
+        "price": "23",
+        "quantity": 1
+      },
+      {
+        "id": 3,
+        "category": "קונדיטוריה",
+        "name": "עוגיית שיבולת שועל",
+        "description": "בריאה ומתוקה",
+        "image": "images/oat.jpg",
+        "content": "שיבולת שועל, דבש, קינמון",
+        "price": 11,
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "query": "\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "
+  },
+  {
+    "userId": 5,
+    "cart": [
+      {
+        "id": 10,
+        "category": "מגשי ארוח",
+        "name": "שוקו קר",
+        "description": "שוקו בטעם ילדות",
+        "image": "images/shoko.jpg",
+        "content": "חלב, קקאו, סוכר",
+        "price": 6,
+        "quantity": 2
+      },
+      {
+        "id": 14,
+        "category": "מגשי ארוח",
+        "name": "מרשמלו",
+        "description": "רך ומתוק בול למדורה",
+        "image": "images/marshmallow.jpg",
+        "content": "סוכר, ג'לטין, צבע מאכל",
+        "price": 6,
+        "quantity": 5
+      }
+    ]
+  }
+]

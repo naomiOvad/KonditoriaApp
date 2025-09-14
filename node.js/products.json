@@ -1,0 +1,173 @@
+[
+  {
+    "id": 6,
+    "category": "קונדיטוריה",
+    "name": "עוגת קרוסלה",
+    "description": "עוגת גזר עם אגוזים וקינמון",
+    "image": "CarouselCake.jpg",
+    "content": "גזר מגורר, אגוזים, קמח, קינמון",
+    "price": "40"
+  },
+  {
+    "id": 15,
+    "category": "קונדיטוריה",
+    "name": "עוגת בלרינה",
+    "description": "עוגייה פריכה עם חמאת בוטנים",
+    "image": "BallerinaCake.jpg",
+    "content": "קמח, חמאת בוטנים, ביצה",
+    "price": "55"
+  },
+  {
+    "id": 5,
+    "category": "קונדיטוריה",
+    "name": "שלושה שוקולדים",
+    "description": "עוגת גבינה אפויה ונימוחה",
+    "image": "ThreeChocolates.jpg",
+    "content": "גבינת שמנת, ביצים, סוכר",
+    "price": 42
+  },
+  {
+    "id": 1,
+    "category": "קונדיטוריה",
+    "name": "עוגת גבינה",
+    "description": "עוגייה פריכה עם שוקולד צ'יפס איכותי",
+    "image": "cheesecake.jpg",
+    "content": "קמח, סוכר, חמאה, שוקולד צ'יפס",
+    "price": "10"
+  },
+  {
+    "id": 16,
+    "category": "קונדיטוריה",
+    "name": "עוגת שלגיה",
+    "description": "עוגייה פריכה עם שוקולד צ'יפס איכותי",
+    "image": "SnowWhitecake.jpg",
+    "content": "קמח, סוכר, חמאה, שוקולד צ'יפס",
+    "price": "10"
+  },
+  {
+    "id": 17,
+    "category": "קונדיטוריה",
+    "name": "עוגת יום הולדת",
+    "description": "עוגייה פריכה עם שוקולד צ'יפס איכותי",
+    "image": "BirthdayCake.jpg",
+    "content": "קמח, סוכר, חמאה, שוקולד צ'יפס",
+    "price": "10"
+  },
+  {
+    "id": 18,
+    "category": "קונדיטוריה",
+    "name": "פאי פרופיטרול",
+    "description": "עוגייה פריכה עם שוקולד צ'יפס איכותי",
+    "image": "pie.jpg",
+    "content": "קמח, סוכר, חמאה, שוקולד צ'יפס",
+    "price": "10"
+  },
+  {
+    "id": 2,
+    "category": "קונדיטוריה",
+    "name": "קרמבולינה",
+    "description": "עוגייה קלאסית נמסה בפה",
+    "image": "cramboline.jpg",
+    "content": "קמח, חמאה, סוכר וניל",
+    "price": "15"
+  },
+  {
+    "id": 3,
+    "category": "קונדיטוריה",
+    "name": "מוצארט",
+    "description": "בריאה ומתוקה",
+    "image": "Mozart.jpg",
+    "content": "שיבולת שועל, דבש, קינמון",
+    "price": 11
+  },
+  {
+    "id": 4,
+    "category": "קונדיטוריה",
+    "name": " שווצריה הקטנה",
+    "description": "עוגת שוקולד עשירה בציפוי שוקולד",
+    "image": "LittleSwitzerland.jpg",
+    "content": "קקאו, קמח, ביצים, שוקולד מריר",
+    "price": 38
+  },
+  {
+    "id": 8,
+    "category": "קייטרינג",
+    "name": "אורז אושפלאו",
+    "description": "קרואסון טרי עם שוקולד בפנים",
+    "image": "OshfloRice.jpg",
+    "content": "בצק שמרים, שוקולד, חמאה",
+    "price": 9
+  },
+  {
+    "id": 9,
+    "category": "קייטרינג",
+    "name": "ירקות מוקפצים",
+    "description": "מאפה אישי רך עם זיתים",
+    "image": "StirFriedVegetables.jpg",
+    "content": "קמח, שמרים, זיתים, שמן זית",
+    "price": 7
+  },
+  {
+    "id": 20,
+    "category": "קייטרינג",
+    "name": "פסטה בטטה ושמנת",
+    "description": "מאפה אישי רך עם זיתים",
+    "image": "SweetPotatoCreamPasta.jpg",
+    "content": "קמח, שמרים, זיתים, שמן זית",
+    "price": 7
+  },
+  {
+    "id": 11,
+    "category": "מגשי ארוח",
+    "name": "מתוק בקטנה",
+    "description": "חליטת צמחים מרגיעה",
+    "image": "SweetSmall.jpg",
+    "content": "נענע, לואיזה, קמומיל",
+    "price": 5
+  },
+  {
+    "id": 12,
+    "category": "מגשי ארוח",
+    "name": "מתוק בריבוע",
+    "description": "אספרסו עם חלב מוקצף",
+    "image": "SweetSquar.jpg",
+    "content": "אספרסו, חלב",
+    "price": 9
+  },
+  {
+    "id": 13,
+    "category": "מגשי ארוח",
+    "name": "מתוק משפחתי",
+    "description": "סוכריות לעיסה בטעמים שונים",
+    "image": "FamilySweet.jpg",
+    "content": "סוכר, חלב, טעמים טבעיים",
+    "price": 4
+  },
+  {
+    "id": 14,
+    "category": "מגשי ארוח",
+    "name": "טבעוני זה אני!",
+    "description": "רך ומתוק בול למדורה",
+    "image": "Vegan.jpg",
+    "content": "סוכר, ג'לטין, צבע מאכל",
+    "price": 6
+  },
+  {
+    "id": 18,
+    "category": "מגשי ארוח",
+    "name": "בלי קמח",
+    "description": "רך ומתוק בול למדורה",
+    "image": "Flourless.jpg",
+    "content": "סוכר, ג'לטין, צבע מאכל",
+    "price": 6
+  },
+  {
+    "id": 19,
+    "category": "מגשי ארוח",
+    "name": "מתוק מפנק",
+    "description": "רך ומתוק בול למדורה",
+    "image": "IndulgentSweet.jpg",
+    "content": "סוכר, ג'לטין, צבע מאכל",
+    "price": 6
+  }
+]

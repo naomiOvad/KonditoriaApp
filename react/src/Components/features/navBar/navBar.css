@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&display=swap');
+
+body {
+  font-family: 'Assistant', sans-serif;
+  margin: 0;
+  direction: rtl;
+  background-color: #ffffff;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: #f7f6f4;
+  padding: 15px 0;
+  margin: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+li {
+  margin: 0 20px;
+}
+
+
+a {
+  text-decoration: none;
+  color: #4e352e;
+  font-weight: 600;
+  font-size: 17px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #b7a99a;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #7a5e52;
+  outline: none;
+}
+
+ button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* מסגרת חומה כשמעבירים עכבר */
+button:hover {
+  border: 1px solid #7a5e52; /* חום כהה – אפשר לשנות לגוון שתרצי */
+}
+
+/* מסגרת חומה גם כש הכפתור בפוקוס (למקלדת) */
+button:focus {
+  outline: none;
+  border: 1px solid #7a5e52;
+}
