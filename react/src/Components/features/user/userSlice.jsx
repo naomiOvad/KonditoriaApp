@@ -10,7 +10,7 @@ const initialState = {
 
 export const getAllUsers = createAsyncThunk("user/getAllUsers", async () => {
   try {
-    const { data } = await axios.get("http://localhost:4000/user");
+    const { data } = await axios.get("/api/user");
     console.log("in getAllUsers func");
     console.log(data);
     return data;
@@ -22,7 +22,7 @@ export const getAllUsers = createAsyncThunk("user/getAllUsers", async () => {
 
 export const addUserTOJESON = createAsyncThunk("user/addUser", async (newUser) => {
   try {
-    const { data } = await axios.post("http://localhost:4000/user", newUser);
+    const { data } = await axios.post("/api/user", newUser);
     localStorage.setItem("currentUser", JSON.stringify(data));
     return data;
   } catch (err) {

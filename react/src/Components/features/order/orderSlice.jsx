@@ -13,7 +13,7 @@ const initialState = {
 
 export const getMyCart = createAsyncThunk("order-getMyCart", async (userId) => {
     try {
-        let { data } = await axios.get("http://localhost:4000/cart/" + userId)
+        let { data } = await axios.get("/api/cart/" + userId)
         console.log("in getMyCart func")
         console.log(data)
         return data
@@ -24,7 +24,7 @@ export const getMyCart = createAsyncThunk("order-getMyCart", async (userId) => {
 })
 export const addToCart = createAsyncThunk("order-addToCart", async ({ id, product }) => {
     try {
-        let { data } = await axios.post("http://localhost:4000/cart/add-product/" + id, product);
+        let { data } = await axios.post("/api/cart/add-product/" + id, product);
         console.log("in addToCart func");
         console.log(data);
         return product;
@@ -35,7 +35,7 @@ export const addToCart = createAsyncThunk("order-addToCart", async ({ id, produc
 
 export const updateProductQuantity = createAsyncThunk("order/updateProductQuantity", async ({ userId, productId, quantity }) => {
     try {
-        const { data } = await axios.patch(`http://localhost:4000/cart/${userId}/product/${productId}`, { quantity, });
+        const { data } = await axios.patch(`/api/cart/${userId}/product/${productId}`, { quantity, });
         return { productId, quantity };
     } catch (err) {
         console.error("שגיאה בעדכון כמות:", err);
@@ -47,7 +47,7 @@ export const removeProductFromCart = createAsyncThunk(
     "order/removeProductFromCart",
     async ({ userId, productId }) => {
         try {
-            await axios.delete(`http://localhost:4000/cart/${userId}/product/${productId}`);
+            await axios.delete(`/api/cart/${userId}/product/${productId}`);
             return productId;
         } catch (err) {
             console.error("שגיאה במחיקת מוצר:", err);
@@ -59,7 +59,7 @@ export const deleteCart = createAsyncThunk(
     "order/deleteCart",
     async (id) => {
         try {
-            await axios.delete(`http://localhost:4000/cart/${id}`);
+            await axios.delete(`/api/cart/${id}`);
             return id;
         } catch (err) {
             console.error("שגיאה במחיקת סל:", err);
@@ -72,7 +72,7 @@ export const addOrder = createAsyncThunk(
     "order/addOrder",
     async (order) => {
         try {
-            await axios.post(`http://localhost:4000/order`, order);
+            await axios.post(`/api/order`, order);
             return order;
         } catch (err) {
             console.error("שגיאה בהוספת הזמנה:", err);
@@ -85,7 +85,7 @@ export const getAllOrders = createAsyncThunk(
     "order/getAllOrders ",
     async () => {
         try {
-            let { data } = await axios.get(`http://localhost:4000/order`);
+            let { data } = await axios.get(`/api/order`);
             return data;
         } catch (err) {
             console.error("שגיאה בקבלת הזמנות:", err);
@@ -96,7 +96,7 @@ export const getMyOrder = createAsyncThunk(
     "order/getMyOrder",
     async (id) => {
         try {
-            let { data } = await axios.get(`http://localhost:4000/order/by-user/` + id);
+            let { data } = await axios.get(`/api/order/by-user/` + id);
             return data;
         } catch (err) {
             console.error("שגיאה בקבלת הזמנה:", err);

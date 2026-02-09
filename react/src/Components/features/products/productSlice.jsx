@@ -8,7 +8,7 @@ const initialState = {
 
 export const getAllProducts = createAsyncThunk("product-getProducts", async () => {
     try {
-        let { data } = await axios.get("http://localhost:4000/product")
+        let { data } = await axios.get("/api/product")
         console.log("in getAllProducts func")
         console.log(data)
         return data
@@ -21,7 +21,7 @@ export const getAllProducts = createAsyncThunk("product-getProducts", async () =
 
 export const updateProduct = createAsyncThunk("product-updateProduct", async (newProduct) => {
     try {
-        let { data } = await axios.put("http://localhost:4000/product/" + newProduct.id, newProduct)
+        let { data } = await axios.put("/api/product/" + newProduct.id, newProduct)
         console.log("in updateProduct func")
         console.log(data)
         return newProduct
@@ -33,7 +33,7 @@ export const updateProduct = createAsyncThunk("product-updateProduct", async (ne
 
 export const addProduct = createAsyncThunk("product-addProduct", async (newProduct) => {
     try {
-        let { data } = await axios.post("http://localhost:4000/product", newProduct)
+        let { data } = await axios.post("/api/product", newProduct)
         console.log("in addProduct func")
         console.log(data)
         return newProduct
@@ -45,7 +45,7 @@ export const addProduct = createAsyncThunk("product-addProduct", async (newProdu
 
 export const deleteProduct = createAsyncThunk("product-deleteProduct", async (id) => {
     try {
-        let { data } = await axios.delete("http://localhost:4000/product/" + id)
+        let { data } = await axios.delete("/api/product/" + id)
         console.log("in deleteProduct func")
         console.log(data)
         return id
