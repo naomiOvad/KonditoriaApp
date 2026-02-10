@@ -12,15 +12,15 @@ jobs:
     steps:
       - name: Write SSH key
         run: |
-          echo "${{ secrets.EC2_SSH_KEY_B64 }}" | base64 -d > key.pem
-          chmod 600 key.pem
+          echo "${{ secrets.EC2_SSH_KEY_B64 }}" | base64 -d > $GITHUB_WORKSPACE/key.pem
+          chmod 600 $GITHUB_WORKSPACE/key.pem
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          key_path: key.pem
+          key_path: ${{ github.workspace }}/key.pem
           script: |
             cd ~/KonditoriaApp
 
@@ -42,4 +42,3 @@ jobs:
             sudo systemctl restart myapp
 
             echo "Deploy completed successfully"
-
