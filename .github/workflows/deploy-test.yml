@@ -18,22 +18,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/KonditoriaApp
-
-            echo "Pull latest code"
             git pull origin main
-
-            echo "Build client"
-            cd react
-            npm install
-            npm run build
-
-            echo "Deploy client to NGINX"
-            sudo rm -rf /var/www/html/*
-            sudo cp -r dist/* /var/www/html/
-
-            echo "Restart server"
-            cd ../node.js
-            npm install
-            sudo systemctl restart myapp
-
-            echo "Deploy completed successfully"
