@@ -18,7 +18,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/Event-equipment-rental-website
+            cd ~/KonditoriaApp
 
             echo "Pull latest code"
             git pull origin main
