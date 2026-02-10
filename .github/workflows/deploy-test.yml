@@ -10,14 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Write SSH key
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY_B64 }}" | base64 -d > key.pem
+          chmod 600 key.pem
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY_B64 }}
-          key_format: base64
+          key_path: key.pem
           script: |
             cd ~/KonditoriaApp
 
@@ -39,3 +42,4 @@ jobs:
             sudo systemctl restart myapp
 
             echo "Deploy completed successfully"
+
