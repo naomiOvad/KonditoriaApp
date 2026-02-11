@@ -1,7 +1,7 @@
 # KonditoriaApp
 
 Full-stack bakery website
-The project is split into two parts:
+The project is split into two parts
 - **Frontend (React):** Handles the UI – product catalog, cart sidebar, navigation, and user authentication.
 - **Backend (Node.js + Express):** Manages users and products, storing data in JSON files.
 
