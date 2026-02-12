@@ -27,7 +27,7 @@ export default function Home() {
             {/* טקסט + גלריה */}
             <Container sx={{ py: 5 }}>
                 <Typography variant="h4" textAlign="center" gutterBottom>
-                    מה תמצאו אצלנו
+                    ?מה תמצאו אצלנו
                 </Typography>
 
                 <Grid container spacing={4} justifyContent="center">
