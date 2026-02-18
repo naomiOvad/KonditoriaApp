@@ -3,7 +3,7 @@ name: Deploy to EC2 (main)
 on:
   push:
     branches:
-      - main
+      - tamar-project
 
 jobs:
   deploy:
@@ -14,14 +14,14 @@ jobs:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.EC2_HOST_TAMAR }}
+          username: ${{ secrets.EC2_USER_TAMAR }}
+          key: ${{ secrets.EC2_SSH_KEY_TAMAR }}
           script: |
             cd ~/KonditoriaApp
 
             echo "Pull latest code"
-            git pull origin main
+            git pull origin tamar-project
 
             echo "Build client"
             cd react
