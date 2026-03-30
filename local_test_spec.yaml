@@ -1,0 +1,166 @@
+meta:
+  plan_source: "Test Plan sections 3–5"
+  framework: vitest
+  generated_at: "2026-03-30T00:00:00Z"
+
+tests:
+  - test_id: C1_U_001
+    priority: MUST
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: module-level exports
+    scenario: "module is imported without throwing; all eight handler exports are present"
+    expected: "typeof each export is 'function'"
+    stabilizers: []
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "module loads without throwing and exposes all expected exports"
+
+  - test_id: C1_U_002
+    priority: MUST
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.get
+    scenario: "fs.readFile succeeds with JSON array"
+    expected: "res.send called with the parsed array"
+    stabilizers:
+      - "mock fs.readFile to invoke callback synchronously with deterministic data"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "get handler responds with parsed JSON array on fs.readFile success"
+
+  - test_id: C1_U_003
+    priority: MUST
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.get (error branch)
+    scenario: "fs.readFile callback receives an Error"
+    expected: "res.status(500).send called"
+    stabilizers:
+      - "mock fs.readFile to invoke callback synchronously with an Error"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "get handler responds with HTTP 500 when fs.readFile returns an error"
+
+  - test_id: C1_U_004
+    priority: SHOULD
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.getById (not-found branch)
+    scenario: "carts array is empty, userId has no matching entry"
+    expected: "res.send called with { userId: 42, cart: [] }"
+    stabilizers:
+      - "mock fs.readFile to return empty array"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "getById returns empty cart object when no matching cart exists for userId"
+
+  - test_id: C1_U_005
+    priority: SHOULD
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.post (duplicate-cart guard)
+    scenario: "carts array already contains an entry with the same userId"
+    expected: "res.status(400).send called"
+    stabilizers:
+      - "mock fs.readFile to return array with matching userId"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "post returns 400 when a cart with the same userId already exists"
+
+  - test_id: C1_U_006
+    priority: SHOULD
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.addProductToCart (existing-product branch)
+    scenario: "product with same id already in cart; new quantity is added"
+    expected: "fs.writeFile called with cart whose product quantity equals original + new"
+    stabilizers:
+      - "mock fs.readFile with deterministic cart data"
+      - "mock fs.writeFile to invoke callback synchronously"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "addProductToCart accumulates quantity when product already exists in cart"
+
+  - test_id: C1_U_007
+    priority: CONSIDER
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.put
+    scenario: "userId not present in carts array"
+    expected: "res.status(404).send called"
+    stabilizers:
+      - "mock fs.readFile to return empty array"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "put returns 404 when userId is not found in carts"
+
+  - test_id: C1_U_008
+    priority: CONSIDER
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.delete
+    scenario: "userId found; cart is spliced and written back"
+    expected: "res.send called with object containing deleted cart"
+    stabilizers:
+      - "mock fs.readFile with one-entry array"
+      - "mock fs.writeFile to invoke callback synchronously"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "delete removes the cart entry and responds with the deleted item"
+
+  - test_id: C1_U_009
+    priority: CONSIDER
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.updateProductQuantity
+    scenario: "cart found for userId but productId not in cart"
+    expected: "res.status(404).send called"
+    stabilizers:
+      - "mock fs.readFile with cart that has no matching productId"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "updateProductQuantity returns 404 when the product is not in the cart"
+
+  - test_id: C1_U_010
+    priority: CONSIDER
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/carts.js
+      symbol_or_hunk: exports.removeProductFromCart
+    scenario: "cart found for userId but filter removes no products"
+    expected: "res.status(404).send called"
+    stabilizers:
+      - "mock fs.readFile with cart that has no matching productId"
+    operation: add
+    target_test_file: node.js/tests/unit/carts.test.js
+    test_name: "removeProductFromCart returns 404 when the product is not found in cart"
