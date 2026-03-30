@@ -1,4 +1,5 @@
 const express = require('express');
+// noop: fifth PR agent smoke test
 const router = express.Router();
 const controllerProduct = require('../controller/product')
 
