@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+// noop: eighth PR agent smoke test
 
 function get(req, res) {
     fs.readFile("users.json", "utf-8", (err, data) => {
