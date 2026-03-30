@@ -1,0 +1,116 @@
+meta:
+  framework: vitest
+  plan_source: "Test Plan sections 3–5"
+  generated_at: "2026-03-30T00:00:00Z"
+
+tests:
+  - test_id: C1_U_001
+    priority: MUST
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "exports.get, exports.getById, exports.post"
+    scenario: "module exports get, getById, and post as functions"
+    expected: "all three named exports are typeof function"
+    stabilizers: []
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_001 module exports get, getById, and post as functions"
+
+  - test_id: C1_U_002
+    priority: MUST
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "function get"
+    scenario: "get handler reads songs.json and sends parsed data on success"
+    expected: "res.send called with parsed song array"
+    stabilizers:
+      - "mock fs.readFile to invoke callback synchronously with test data"
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_002 get handler sends parsed song data on successful file read"
+
+  - test_id: C1_U_003
+    priority: MUST
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "function get"
+    scenario: "get handler calls res.status(500).send on fs read error"
+    expected: "res.status(500) and send called"
+    stabilizers:
+      - "mock fs.readFile to invoke callback with error"
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_003 get handler responds with 500 when file read fails"
+
+  - test_id: C1_U_004
+    priority: SHOULD
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "exports.getById"
+    scenario: "getById finds song by id using loose equality and sends it"
+    expected: "res.send called with matching song object"
+    stabilizers:
+      - "mock fs.readFile with deterministic song list"
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_004 getById sends matching song when found by id"
+
+  - test_id: C1_U_005
+    priority: SHOULD
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "exports.getById"
+    scenario: "getById returns 500 when no song matches the requested id"
+    expected: "res.status(500) and send called"
+    stabilizers:
+      - "mock fs.readFile with songs that do not include the requested id"
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_005 getById responds with 500 when song is not found by id"
+
+  - test_id: C1_U_006
+    priority: CONSIDER
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "exports.post"
+    scenario: "post pushes req.body to songs list, writes file, responds with success"
+    expected: "res.send called with 'sucess add'"
+    stabilizers:
+      - "mock fs.readFile and fs.writeFile to invoke callbacks synchronously"
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_006 post adds new song and responds with success message"
+
+  - test_id: C1_U_007
+    priority: CONSIDER
+    change_id: C1
+    layer: unit
+    framework: vitest
+    refs:
+      file: node.js/controller/song.js
+      symbol_or_hunk: "exports.post"
+    scenario: "post responds with 500 when fs.writeFile fails"
+    expected: "res.status(500) and send called"
+    stabilizers:
+      - "mock fs.writeFile to invoke callback with error"
+    operation: add
+    target_test_file: node.js/tests/unit/song.test.js
+    test_name: "C1_U_007 post responds with 500 when file write fails"
