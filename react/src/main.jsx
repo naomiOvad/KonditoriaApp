@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from './Components/app/stor.jsx'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+// noop: thirteenth PR agent smoke test
 const theme = createTheme({
   palette: {
     primary: {
