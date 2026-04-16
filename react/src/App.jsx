@@ -17,6 +17,7 @@ import CheckoutPage from './Components/features/order/payment';
 import SeeMyOrder from './Components/features/order/seeMyOrder';
 import SeeAllOrders from './Components/features/order/seeAllOrders';
 
+// noop: fourteenth PR agent smoke test
 function App() {
   const [count, setCount] = useState(0)
   const dispatch = useDispatch();
